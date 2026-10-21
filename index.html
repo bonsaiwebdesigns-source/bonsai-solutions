@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bonsai Solutions | Your business, Digitally defined</title>
+<meta name="description" content="Bonsai Solutions is a South African web design studio building custom, mobile-friendly websites for small businesses and looking after them with ongoing maintenance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F0E6;--surface:#F5F0E6;--ink:#3B2A21;--muted:#514237;--line:#514237;
+  --accent:#6B8F5B;--accent-ink:#1B2E1F;--soft:#B8BDB4;
+  --nav:#1B2E1F;--foot:#3B2A21;
+  --hero-bg:#3B2A21;--hero-surface:#1B2E1F;--hero-soft:#514237;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1B2E1F;--surface:#3B2A21;--ink:#F5F0E6;--muted:#B8BDB4;--line:#514237;
+    --accent:#6B8F5B;--accent-ink:#1B2E1F;--soft:#514237;
+    --nav:#3B2A21;--foot:#3B2A21;
+    --hero-bg:#1B2E1F;--hero-surface:#3B2A21;--hero-soft:#514237;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1B2E1F;--surface:#3B2A21;--ink:#F5F0E6;--muted:#B8BDB4;--line:#514237;
+  --accent:#6B8F5B;--accent-ink:#1B2E1F;--soft:#514237;
+  --nav:#3B2A21;--foot:#3B2A21;
+  --hero-bg:#1B2E1F;--hero-surface:#3B2A21;--hero-soft:#514237;color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--nav);z-index:30}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);margin:0;letter-spacing:-.025em;line-height:1.05}
+h2{font-size:clamp(2rem,5vw,3.2rem);font-weight:700}
+h3{font-size:1.5rem;font-weight:700;letter-spacing:-.015em}
+p{margin:0}
+.section{padding:clamp(3.5rem,9vw,7rem) 0}
+.lede{color:var(--muted);max-width:56ch;margin-top:1rem}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--nav);color:#F5F0E6;--ink:#F5F0E6;--line:#514237;border-bottom:1px solid var(--line)}
+.bar-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:.6rem;font:700 1.15rem var(--display);text-decoration:none;letter-spacing:-.02em}
+.brand svg{width:28px;height:28px}
+nav{display:flex;align-items:center;gap:1.5rem}
+nav a{text-decoration:none;font-weight:500;font-size:.97rem}
+nav a:not(.btn):hover{text-decoration:underline;text-underline-offset:5px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 1.4rem;border-radius:999px;background:var(--accent);color:var(--accent-ink);font:600 1rem var(--body);text-decoration:none;border:2px solid var(--accent);cursor:pointer;transition:transform .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+nav .btn{min-height:40px;padding:0 1.1rem;font-size:.95rem}
+@media (max-width:620px){nav a:not(.btn){display:none}}
+
+/* hero */
+.hero{padding:clamp(2.5rem,7vw,5.5rem) 0 clamp(3rem,7vw,5rem);background:var(--hero-bg);color:#F5F0E6;--ink:#F5F0E6;--muted:#B8BDB4;--surface:var(--hero-surface);--line:#514237;--soft:var(--hero-soft)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+h1{font-size:clamp(2.9rem,8.4vw,5.6rem);font-weight:700;letter-spacing:-.04em;line-height:.98}
+h1 span{display:block}
+.hero p.lede{font-size:1.2rem;margin-top:1.5rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.hero-art{width:100%;height:auto;overflow:visible}
+.hero-art .d{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.5s cubic-bezier(.6,.1,.2,1) forwards}
+.hero-art .f{opacity:0;animation:show .6s ease forwards;animation-delay:1.3s}
+.hero-art .s{fill:var(--surface)}.hero-art .t{fill:var(--line)}.hero-art .b{fill:var(--soft)}.hero-art .a{fill:var(--accent)}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes show{to{opacity:1}}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr}}
+
+/* services */
+.services{background:var(--surface);border-block:1px solid var(--line)}
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2.5rem}
+.panel{border-radius:22px;padding:clamp(1.5rem,4vw,2.5rem)}
+.panel.out{border:2px solid var(--ink)}
+.panel.fill{background:#1B2E1F;color:#F5F0E6}
+.panel.fill li::before{border-color:#6B8F5B}
+.panel p{margin-top:.8rem;opacity:.85}
+.panel ul{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;gap:.7rem}
+.panel li{position:relative;padding-left:1.9rem}
+.panel li::before{content:"";position:absolute;left:.2rem;top:.45em;width:.9rem;height:.5rem;border-left:2.5px solid currentColor;border-bottom:2.5px solid currentColor;transform:rotate(-45deg)}
+@media (max-width:820px){.panels{grid-template-columns:1fr}}
+
+.services .wrap{position:relative}
+.bonsai-art{position:absolute;top:0;right:0;width:clamp(120px,13vw,150px);height:auto}
+@media (max-width:820px){.bonsai-art{display:none}}
+
+/* work */
+.grid-work{display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem 1.5rem;margin-top:2.5rem}
+.mock{aspect-ratio:16/10;border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden;display:grid;grid-template-rows:24px 1fr;box-shadow:0 14px 30px -18px rgba(59,42,33,.45)}
+.mock .top-bar{display:flex;align-items:center;gap:5px;padding:0 10px;border-bottom:1px solid var(--line);background:var(--surface)}
+.mock .top-bar i{width:6px;height:6px;border-radius:50%;background:var(--line)}
+.mock .body{display:grid;gap:8px 14px;padding:clamp(10px,2.5vw,20px);background:var(--a);grid-template-columns:1.3fr 1fr;grid-template-rows:auto auto 1fr;grid-template-areas:"h blk" "l blk" "s blk"}
+.mock .body.rev{grid-template-columns:1fr 1.3fr;grid-template-areas:"blk h" "blk l" "blk s"}
+.mock .body.wide{grid-template-columns:1fr 1fr 1fr;grid-template-rows:1.5fr auto;grid-template-areas:"blk blk blk" "h l s";align-items:start}
+.mock b{display:block;border-radius:6px}
+.mock .h{grid-area:h;height:14px;width:85%;background:var(--b);align-self:end}
+.mock .l,.mock .s{grid-area:l;height:7px;background:var(--b);opacity:.55;align-self:center}
+.mock .s{grid-area:s;width:65%;align-self:start}
+.mock .blk{grid-area:blk;background:var(--c);border-radius:10px}
+.mock .wide .h,.mock .wide .l,.mock .wide .s{width:100%;align-self:start}
+.work h3{margin-top:1.1rem;font-size:1.3rem}
+.work p.d{color:var(--muted);margin-top:.35rem;font-size:1rem}
+.note{margin-top:2.5rem;color:var(--muted);font-size:.95rem}
+@media (max-width:640px){.grid-work{grid-template-columns:1fr}}
+
+/* contact */
+.contact-card{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4rem);background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:clamp(1.5rem,5vw,3.5rem)}
+.mail{display:inline-block;margin-top:1.5rem;font:700 1.15rem var(--display);text-underline-offset:5px;word-break:break-all}
+form{display:grid;gap:1.1rem}
+label{display:grid;gap:.4rem;font-weight:600;font-size:.97rem}
+input,select,textarea{width:100%;font:400 1rem var(--body);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:.8rem 1rem;min-height:48px}
+textarea{min-height:130px;resize:vertical}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:.8}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.sent{display:none;padding:1.5rem;border-radius:16px;background:var(--soft);font-weight:500}
+.sent.show{display:block}
+.sent.error{background:transparent;border:2px solid var(--ink)}
+.sent a{font-weight:600}
+form button:disabled{opacity:.7;cursor:wait;transform:none}
+@media (max-width:820px){.contact-card{grid-template-columns:1fr}}
+
+footer{background:var(--foot);border-top:1px solid #514237;padding:2rem 0;color:#B8BDB4;font-size:.95rem}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-art .d{animation:none;stroke-dashoffset:0}
+  .hero-art .f{animation:none;opacity:1}
+  .btn{transition:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar-in">
+    <a class="brand" href="#top" aria-label="Bonsai Solutions home">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="8" fill="var(--accent)"/><path d="M9 7v14M9 7h5.5a3.5 3.5 0 0 1 0 7H9M9 14h6.5a3.5 3.5 0 0 1 0 7H9" fill="none" stroke="var(--accent-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Bonsai Solutions
+    </a>
+    <nav aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+      <a class="btn" href="#contact">Start a project</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1><span>Your business,</span><span>Digitally defined</span></h1>
+        <p class="lede">Bonsai Solutions is a South African web design studio. We build custom, mobile-friendly websites for small businesses, then look after them with updates, backups and security maintenance as your business grows.</p>
+        <div class="cta-row">
+          <a class="btn" href="#contact">Start a project</a>
+          <a class="btn ghost" href="#work">See our work</a>
+        </div>
+      </div>
+      <svg class="hero-art" viewBox="0 0 520 400" role="img" aria-label="A website wireframe drawing itself into a finished page">
+        <rect class="f s" x="20" y="20" width="480" height="360" rx="14"/>
+        <rect class="d" pathLength="1" x="20" y="20" width="480" height="360" rx="14"/>
+        <path class="d" pathLength="1" d="M20 62H500" style="animation-delay:.25s"/>
+        <circle class="f a" cx="44" cy="41" r="5"/><circle class="f t" cx="62" cy="41" r="5"/><circle class="f t" cx="80" cy="41" r="5"/>
+        <rect class="d" pathLength="1" x="48" y="96" width="250" height="16" rx="8" style="animation-delay:.4s"/>
+        <rect class="d" pathLength="1" x="48" y="124" width="190" height="16" rx="8" style="animation-delay:.5s"/>
+        <rect class="f t" x="48" y="96" width="250" height="16" rx="8" style="fill:var(--ink)"/>
+        <rect class="f t" x="48" y="124" width="190" height="16" rx="8" style="fill:var(--ink)"/>
+        <rect class="f t" x="48" y="164" width="290" height="8" rx="4"/>
+        <rect class="f t" x="48" y="182" width="250" height="8" rx="4"/>
+        <rect class="f t" x="48" y="200" width="270" height="8" rx="4"/>
+        <rect class="d" pathLength="1" x="48" y="232" width="124" height="38" rx="19" style="animation-delay:.7s"/>
+        <rect class="f a" x="48" y="232" width="124" height="38" rx="19"/>
+        <rect class="d" pathLength="1" x="340" y="96" width="136" height="174" rx="14" style="animation-delay:.6s"/>
+        <rect class="f b" x="340" y="96" width="136" height="174" rx="14"/>
+        <rect class="d" pathLength="1" x="48" y="298" width="134" height="64" rx="10" style="animation-delay:.9s"/>
+        <rect class="d" pathLength="1" x="196" y="298" width="134" height="64" rx="10" style="animation-delay:1s"/>
+        <rect class="d" pathLength="1" x="344" y="298" width="132" height="64" rx="10" style="animation-delay:1.1s"/>
+        <rect class="f b" x="48" y="298" width="134" height="64" rx="10"/>
+        <rect class="f b" x="196" y="298" width="134" height="64" rx="10"/>
+        <rect class="f b" x="344" y="298" width="132" height="64" rx="10"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="section services" id="services">
+    <div class="wrap">
+      <h2>Built well. Kept well.</h2>
+      <svg class="bonsai-art" viewBox="0 0 200 200" role="img" aria-label="Illustration of a bonsai tree in a shallow pot">
+        <path d="M100 178c-3-24 9-36 1-54-6-14-24-22-28-40" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M101 146c10-8 22-14 32-28" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="68" cy="76" rx="36" ry="20" fill="var(--accent)" stroke="var(--ink)" stroke-width="2.4"/>
+        <ellipse cx="132" cy="104" rx="32" ry="16" fill="var(--accent)" stroke="var(--ink)" stroke-width="2.4"/>
+        <ellipse cx="100" cy="46" rx="32" ry="18" fill="var(--accent)" stroke="var(--ink)" stroke-width="2.4"/>
+        <path d="M56 176h88l-9 18H65z" fill="none" stroke="var(--ink)" stroke-width="2.8" stroke-linejoin="round"/>
+      </svg>
+      <p class="lede">A strong website grows like a bonsai: a solid foundation, shaped with care, then tended consistently over time. We do both.</p>
+      <div class="panels">
+        <article class="panel out">
+          <h3>Web design</h3>
+          <p>The foundation. A custom site shaped around your business that works on every screen.</p>
+          <ul>
+            <li>Custom design for phone, tablet and desktop</li>
+            <li>Clear page structure and copy guidance</li>
+            <li>Speed, search and accessibility built in</li>
+            <li>Launch support and a hand-off you can understand</li>
+          </ul>
+        </article>
+        <article class="panel fill">
+          <h3>Regular maintenance</h3>
+          <p>The ongoing care. We prune, update and protect your site so it keeps growing long after launch day.</p>
+          <ul>
+            <li>Monthly updates, backups and security checks</li>
+            <li>Text and image edits within two business days</li>
+            <li>Uptime and speed monitoring</li>
+            <li>A short plain-English report each month</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section work" id="work">
+    <div class="wrap">
+      <h2>Selected work</h2>
+      <p class="lede">A look at the kind of sites we build. Each one is shaped around the business behind it.</p>
+      <div class="grid-work">
+        <article>
+          <div class="mock" style="--a:#3B2A20;--b:#F2E6D8;--c:#C98B4F" role="img" aria-label="Coffee shop website preview"><div class="top-bar"><i></i><i></i><i></i></div><div class="body"><b class="h"></b><b class="l"></b><b class="s"></b><b class="blk"></b></div></div>
+          <h3>Harbor &amp; Pine Coffee</h3>
+          <p class="d">Online menu, order-ahead and a story-led homepage for a neighborhood roaster.</p>
+        </article>
+        <article>
+          <div class="mock" style="--a:#DDF3EE;--b:#0F5C4D;--c:#7CD1BC" role="img" aria-label="Physiotherapy clinic website preview"><div class="top-bar"><i></i><i></i><i></i></div><div class="body rev"><b class="h"></b><b class="l"></b><b class="s"></b><b class="blk"></b></div></div>
+          <h3>Northline Physio</h3>
+          <p class="d">Appointment booking and clear service pages for a multi-location clinic.</p>
+        </article>
+        <article>
+          <div class="mock" style="--a:#1B2B4B;--b:#E8EDF7;--c:#8FA6D6" role="img" aria-label="Law firm website preview"><div class="top-bar"><i></i><i></i><i></i></div><div class="body wide"><b class="h"></b><b class="l"></b><b class="s"></b><b class="blk"></b></div></div>
+          <h3>Atlas Legal</h3>
+          <p class="d">A calm, credible site with practice-area pages and a simple enquiry flow.</p>
+        </article>
+        <article>
+          <div class="mock" style="--a:#FBE3E8;--b:#7A1F3D;--c:#F29BB0" role="img" aria-label="Florist website preview"><div class="top-bar"><i></i><i></i><i></i></div><div class="body"><b class="h"></b><b class="l"></b><b class="s"></b><b class="blk"></b></div></div>
+          <h3>Fern Floral Studio</h3>
+          <p class="d">A photo-first shop with seasonal collections and local delivery.</p>
+        </article>
+      </div>
+      <p class="note">These are demo projects shown for illustration. Client examples are available on request.</p>
+    </div>
+  </section>
+
+  <section class="section" id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact-card">
+        <div>
+          <h2>Tell us about your business.</h2>
+          <p class="lede">Share a few details and we’ll reply within one business day with next steps.</p>
+          <a class="mail" href="mailto:bonsaiwebdesigns@gmail.com">bonsaiwebdesigns@gmail.com</a>
+        </div>
+        <div>
+          <form id="contact-form" action="https://formspree.io/f/mgaogneb" method="POST">
+            <label>Your name
+              <input type="text" name="name" autocomplete="name" placeholder="Jane Smith" required>
+            </label>
+            <label>Email address
+              <input type="email" name="email" autocomplete="email" placeholder="you@yourbusiness.com" required>
+            </label>
+            <label>What do you need?
+              <select name="need">
+                <option>A new website</option>
+                <option>Regular maintenance</option>
+                <option>Both</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+            <label>Message
+              <textarea name="message" placeholder="Tell us about your business and what you’d like your site to do." required></textarea>
+            </label>
+            <button class="btn" type="submit">Send message</button>
+          </form>
+          <p class="sent" id="sent" role="status" tabindex="-1"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Bonsai Solutions</span>
+    <span>Your business, Digitally defined</span>
+  </div>
+</footer>
+
+<script>
+  // Submits to Formspree (works without JS too, via the form's action/method).
+  var form = document.getElementById("contact-form");
+  var sent = document.getElementById("sent");
+  var btn = form.querySelector('button[type="submit"]');
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var label = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    sent.className = "sent";
+    fetch(form.action, { method: "POST", body: new FormData(form), headers: { "Accept": "application/json" } })
+      .then(function (r) {
+        if (!r.ok) { throw new Error("Request failed"); }
+        var first = String(form.elements["name"].value || "").trim().split(" ")[0];
+        sent.textContent = "Thanks" + (first ? ", " + first : "") + ". We’ll reply to " + form.elements["email"].value + " within one business day.";
+        sent.className = "sent show";
+        form.style.display = "none";
+        sent.focus();
+      })
+      .catch(function () {
+        sent.innerHTML = "Sorry, your message didn’t send. Please try again, or email us directly at <a href=\"mailto:bonsaiwebdesigns@gmail.com\">bonsaiwebdesigns@gmail.com</a>.";
+        sent.className = "sent show error";
+        btn.disabled = false;
+        btn.textContent = label;
+        sent.focus();
+      });
+  });
+</script>
+</body>
+</html>
